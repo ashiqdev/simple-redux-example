@@ -1,7 +1,8 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 
-const BookDetails = ({ book }) => {
+const BookDetails = () => {
+  const book = useSelector(state => state.selectedBook);
   if (!book) {
     return <div>Select a book</div>;
   }
@@ -18,9 +19,11 @@ const BookDetails = ({ book }) => {
   )
 };
 
-const mapStateToProps = state => {
-  console.log(state);
-  return { book: state.selectedBook };
-};
+// const mapStateToProps = state => {
+//   console.log(state);
+//   return { book: state.selectedBook };
+// };
 
-export default connect(mapStateToProps)(BookDetails);
+// export default connect(mapStateToProps)(BookDetails);
+
+export default BookDetails;
